@@ -1,0 +1,79 @@
+// Place all the styles related to the Sites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container{
+background-color: #def5f9;
+font-size: 16px;
+padding-bottom: 600px;}
+
+
+.navbar {
+	display: flex;
+	height: 40px;
+	justify-content: flex-end;
+}
+
+.signup{
+	font-size: 14px;
+	background-color: white;
+	border: 1px solid black;
+	color: black;
+	font-family: Roboto;
+	padding: 3px 4px;
+	margin-bottom:10px;
+}
+
+.signin{
+	font-size: 14px;
+	background-color: white;
+	border: 1px solid black;
+	color: black;
+	font-family: Roboto;
+	margin-right:10px;
+	padding: 3px 4px;
+	margin-bottom:10px;
+}
+
+a:link{
+    text-decoration:none;
+    color:black;
+}
+
+
+.search-bar{
+	font-size:20px;
+	padding: 5px 0px;
+	border: 5px 0px;
+	margin-top:10px;
+
+}
+
+.search-form{
+	font-family: PT Sans;
+	font-size: 18px;
+	text-align: center;
+}
+
+.submit-buttons{
+	margin-top: 10px;
+	font-family: Roboto;
+	font-size: 16 px;
+}
+
+
+.user-navbar {
+	font-family: Roboto;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	height: 40px;
+	justify-content: flex-end;
+	background-color: #def5f9;
+	font-size: 16px;
+	margin-bottom:40px;
+
+}
+
+
+

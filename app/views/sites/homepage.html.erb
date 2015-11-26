@@ -1,0 +1,26 @@
+<head>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<h1> </h1>
+	<div class='navbar-container'>
+		<div class= 'user-navbar'>
+			<%= link_to "New Recipe", new_recipe_path %></
+		</div>	
+	</div>
+
+	<div class= 'container'>
+	<div class ='search-form'>
+
+		<%= form_tag('/search') do %>
+			<label for="ingredient">What's in your fridge?</label>
+			<div><%= text_field_tag 'ingredient' %></div>
+	  		<div><%= submit_tag 'Submit' %></div>
+		<% end %>
+	</div>	
+	</div>
+	</form>
+
+:class => 'submit_class_name_here'
+</body>

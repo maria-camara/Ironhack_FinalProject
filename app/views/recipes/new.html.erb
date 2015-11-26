@@ -1,0 +1,42 @@
+
+
+<% if @recipe.step == 1 %>
+<h1>New recipe</h1> 
+	<%= form_for @recipe  do |f| %>
+		  <%= f.label :title %>:
+		  <%= f.text_field :title %><br />
+		  <%= f.label :time %>:
+		  <%= f.number_field :time %><br />
+		  <%= f.submit %>
+		  <% end %>
+	<% else %>
+	<h1>Add an ingredient </h1> 
+	<%= form_for [@recipe,@ingredient] do |t| %>
+  		<%= t.label :name %>:
+  		<%= t.text_field :name %><br />
+  		<%= fields_for @amount do |z| %>
+		  <%= z.label :quantity %>:
+		  <%= z.number_field :quantity %><br />
+		  <%= z.label :measure %>:
+		  <%= z.text_field :measure %><br />
+		<%- end %>
+		<%= t.submit %>
+		<%= hidden_field_tag(:step, '2') %>
+		<%= button_to  'Add and move to preparation', id: "update-value"%>	
+	<%- end %>
+<% end %>
+
+
+(type // after each step to allow step-by-step view.)
+
+<script type="text/javascript">
+$('#new_ingredient-form').submit(function(){ //listen for submit event
+        $('<input />').attr('type', 'hidden').val(3)
+            // .attr('name', param.name)
+            // .attr('value', param.value)
+            // .appendTo('#commentForm');
+    
+
+    return true;
+});
+</script>

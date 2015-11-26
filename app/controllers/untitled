@@ -1,0 +1,22 @@
+
+<%= fields_for @ingredient do |t| %>
+
+  <%= t.label :name %>:
+  <%= t.text_field :name %><br />
+
+<%- end %>
+
+<%= fields_for @amount do |z| %>
+
+  <%= z.label :quantity %>:
+  <%= z.number_field :quantity %><br />
+  <%= z.label :measure %>:
+  <%= z.text_field :measure %><br />
+  
+
+<%- end %>
+
+ 
+
+  <%= r.submit "send"%>
+<% end %>
