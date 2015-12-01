@@ -7,10 +7,7 @@ class IngredientsRecipe < ActiveRecord::Base
 
 
 	def self.get_ingredients_for_recipe(recipe_id)
-
-		 @ingredients = []
-		 @ingredients << Ingredient.find(RecipeWithIngredient.where(recipe_id)[0].ingredient_id)
-
+		IngredientsRecipe.where(recipe_id: recipe_id).collect {|object| Ingredient.find(object.ingredient_id)}
 	end
 
 	#def self.get_quantities_and_measures(ingredient_id)

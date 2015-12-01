@@ -1,11 +1,19 @@
 
-<%= form_for @recipe  do |f| %>
-		  <%= f.label :preparation %>:
-		  <%= f.text_area :preparation %><br />
-		  (type // after each step to allow step-by-step view.) <br>
-		  <%= f.submit "Done!" %>
-<% end %>	
-
+<% if @recipe %>
+	<%= form_for @recipe  do |f| %>
+			  <%= f.label :preparation %>:
+			  <%= f.text_area :preparation %><br />
+			  (type // after each step to allow step-by-step view.) <br>
+			  <%= f.submit "Done!" %>
+	<% end %>	
+<% else %>
+	<%= form_for @recipe_last_step do |f| %>
+			  <%= f.label :preparation %>:
+			  <%= f.text_area :preparation %><br />
+			  (type // after each step to allow step-by-step view.) <br>
+			  <%= f.submit "Done!" %>
+	<% end %>	
+<% end %>
 
 
 

@@ -19,3 +19,7 @@
  .search-ingredient-area {
  	padding: 0;
  }
+
+ .half-left, .half-right {
+ 	width: 50%;
+ }

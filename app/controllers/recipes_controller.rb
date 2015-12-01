@@ -6,6 +6,9 @@ class RecipesController < ApplicationController
 			@new_recipe = Recipe.new
 		else 
 			@recipe = Recipe.last
+			@ingredient = Ingredient.new
+			@ingredients_recipes = IngredientsRecipe.new
+			@added_ingredients = IngredientsRecipe.get_ingredients_for_recipe(@recipe.id)
 		end
 		#PARA USAR NESTED FORMS----------------
 		#@recipe.ingredients.build # build ingredient attributes, nothing new here
@@ -73,14 +76,26 @@ class RecipesController < ApplicationController
 		#binding.pry
 	end 
 
+	def edit
+		recipe = Recipe.find(params[:id])
+		if recipe.step == 2
+			@recipe_last_step = recipe
+		else
+			@recipe = recipe 
+		end
+	end
+
+
 	def update
-		
 		@recipe = Recipe.find(params[:id])
-
-		@ingredients = RecipeWithIngredient.get_ingredients_for_recipe(params[:id])
-
-		render :template => "recipes/show"
-
+		if @recipe.step == 2
+			@recipe.update(recipe_params)
+			@recipe.update(step: 3)
+			#flash[:message] = "Recipe Created!!"
+		else 
+			@recipe.update(recipe_params)
+		end
+		redirect_to recipe_path(@recipe)
     end
 		#PARA NESTED FORMS-----------------
 	# 	if params[:add_ingredient]

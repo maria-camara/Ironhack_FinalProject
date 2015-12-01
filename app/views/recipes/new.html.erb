@@ -1,6 +1,8 @@
-<h1>New recipe</h1> 
 
+
+<div class="left-half">
 <% if @new_recipe %> 
+<h1>New recipe</h1> 
 <%= form_for @new_recipe do |f| %>
   <p>
     <%= f.label :title %><br />
@@ -14,21 +16,33 @@
   <%= f.submit 'Next' %>
   <% end %>
 <% else %> 
-  <h3>Ingredients</h3>
-  <%= fields_for :ingredients do |ing| %>
+  <h1>Ingredients</h1>
+  <%= form_for [@recipe, @ingredient] do |ing| %>
       <p>
         <%= ing.label :name %>
         <%= ing.text_field :name %>
-        <%= ing.label :quantity %>
-        <%= ing.number_field :quantity %>
-        <%= ing.label :measure %>
-        <%= ing.text_field :measure %>
+        <%= fields_for @ingredients_recipes do |details| %> 
+          <%= details.label :quantity %>
+          <%= details.number_field :quantity %>
+          <%= details.label :measure %>
+          <%= details.text_field :measure %>
+        <% end %>
         </p>
         <p>
         <%= ing.submit 'Add ingredient', :name => "add_ingredient" %>
-        <%= ing.submit 'Delete checked ingredients', :name => "remove_ingredient" %>
-        <%= ing.submit 'Save recipe' %>
+        <%= link_to 'Next Step', edit_recipe_path(@recipe) %>
         </p>
-      
   <% end %>
 <% end %>
+</div>
+<div class="right-half">
+  <% if @added_ingredients %>
+    <h1>Chosen Ingredients</h1>
+    <% @added_ingredients.each do |ingredient| %>
+    <p>Name:
+      <%= ingredient.name %>
+    </p>    
+    <% end %>
+  <% end %>
+</div>
+
