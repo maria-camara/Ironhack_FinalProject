@@ -1,42 +1,34 @@
-
-
-<% if @recipe.step == 1 %>
 <h1>New recipe</h1> 
-	<%= form_for @recipe  do |f| %>
-		  <%= f.label :title %>:
-		  <%= f.text_field :title %><br />
-		  <%= f.label :time %>:
-		  <%= f.number_field :time %><br />
-		  <%= f.submit %>
-		  <% end %>
-	<% else %>
-	<h1>Add an ingredient </h1> 
-	<%= form_for [@recipe,@ingredient] do |t| %>
-  		<%= t.label :name %>:
-  		<%= t.text_field :name %><br />
-  		<%= fields_for @amount do |z| %>
-		  <%= z.label :quantity %>:
-		  <%= z.number_field :quantity %><br />
-		  <%= z.label :measure %>:
-		  <%= z.text_field :measure %><br />
-		<%- end %>
-		<%= t.submit %>
-		<%= hidden_field_tag(:step, '2') %>
-		<%= button_to  'Add and move to preparation', id: "update-value"%>	
-	<%- end %>
+
+<% if @new_recipe %> 
+<%= form_for @new_recipe do |f| %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+
+   <p>
+    <%= f.label :time %><br />
+    <%= f.number_field :time %>
+  </p>
+  <%= f.submit 'Next' %>
+  <% end %>
+<% else %> 
+  <h3>Ingredients</h3>
+  <%= fields_for :ingredients do |ing| %>
+      <p>
+        <%= ing.label :name %>
+        <%= ing.text_field :name %>
+        <%= ing.label :quantity %>
+        <%= ing.number_field :quantity %>
+        <%= ing.label :measure %>
+        <%= ing.text_field :measure %>
+        </p>
+        <p>
+        <%= ing.submit 'Add ingredient', :name => "add_ingredient" %>
+        <%= ing.submit 'Delete checked ingredients', :name => "remove_ingredient" %>
+        <%= ing.submit 'Save recipe' %>
+        </p>
+      
+  <% end %>
 <% end %>
-
-
-(type // after each step to allow step-by-step view.)
-
-<script type="text/javascript">
-$('#new_ingredient-form').submit(function(){ //listen for submit event
-        $('<input />').attr('type', 'hidden').val(3)
-            // .attr('name', param.name)
-            // .attr('value', param.value)
-            // .appendTo('#commentForm');
-    
-
-    return true;
-});
-</script>

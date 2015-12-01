@@ -2,78 +2,52 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.container{
-background-color: #def5f9;
-font-size: 16px;
-padding-bottom: 600px;}
-
-
-.navbar {
-	display: flex;
-	height: 40px;
-	justify-content: flex-end;
+.container-homepage{
+	background-color: #cee5ed;
+	width: 100%;
+    min-height: 100%;
+    margin: 0;
 }
 
-.signup{
-	font-size: 14px;
-	background-color: white;
-	border: 1px solid black;
-	color: black;
-	font-family: Roboto;
-	padding: 3px 4px;
-	margin-bottom:10px;
-}
+#ingredient{
+	font-size: 30px;
+	color:#767676;
 
-.signin{
-	font-size: 14px;
-	background-color: white;
-	border: 1px solid black;
-	color: black;
-	font-family: Roboto;
-	margin-right:10px;
-	padding: 3px 4px;
-	margin-bottom:10px;
-}
-
-a:link{
-    text-decoration:none;
-    color:black;
-}
-
-
-.search-bar{
-	font-size:20px;
-	padding: 5px 0px;
-	border: 5px 0px;
-	margin-top:10px;
+	padding: 20px 0px;
+	border: 10px 0px double;
+	margin-top:20px;
 
 }
 
 .search-form{
-	font-family: PT Sans;
-	font-size: 18px;
+	color: white;
+	font-family: Roboto;
+	font-size: 40px;
 	text-align: center;
 }
 
-.submit-buttons{
+a[value=Submit]{
 	margin-top: 10px;
 	font-family: Roboto;
-	font-size: 16 px;
+	font-size: 20 px;
 }
 
 
 .user-navbar {
 	font-family: Roboto;
-	font-size: 12px;
+	font-size: 14px;
 	display: flex;
 	align-items: center;
 	height: 40px;
 	justify-content: flex-end;
-	background-color: #def5f9;
-	font-size: 16px;
+	margin-right: 5px;
 	margin-bottom:40px;
+	background-color: white;
+	width: 50px;
+	text-align: center;
 
 }
+
 
 
 

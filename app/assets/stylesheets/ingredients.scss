@@ -3,16 +3,44 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+body {
+	background-color:#cee5ed;
+	width: 100%;
+    min-height: 100%;
+    margin: 0;
+    
+}
+
+.search-container{
+	background-color: white;
+	width: 400px;
+	padding-bottom: 100px;
+	margin: 0 auto;
+}
+
+.user-navbar{
+	color: white;
+}
+
 .list-of-recipes-title{
-	
-	font-family: arial;
+	text-align:center;
+	font-family: roboto;
 	font-size: 20px;
+	padding-top: 20px;
 }
-
 .list-of-recipes{
-	font-family: PT Sans;
-	font-size: 14px;
-	list-style-type: none;
-
+	font-family: roboto;
+	font-size: 16px;
+	list-style-type: none;	
 }
-
+.back-btn{
+	font-family: roboto;
+	font-size: 16px;
+	background-color: white;
+	width: 50px;
+	text-align:center;
+	margin-top: -145px;
+	margin-left: 810px;
+	padding: 10px 0px;
+	
+}

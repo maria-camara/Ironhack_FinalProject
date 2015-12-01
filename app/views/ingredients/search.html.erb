@@ -4,6 +4,10 @@
 </head>
 
 <body>
+	
+
+	<div class= 'search-container'>
+
 	<% if @recipes %>
 		<h4 class= 'list-of-recipes-title'>Here are some ideas!</h4>
 
@@ -15,6 +19,8 @@
 		</ul>	
 
 	<% end %>
+	</div>
+	<div class="back-btn"><%= link_to "Back", search_path %> </div>
 
 
 </body>

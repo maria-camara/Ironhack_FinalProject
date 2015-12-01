@@ -1,0 +1,66 @@
+
+
+.container{
+	background-image: asset-url("background.jpg");
+  	position: fixed; 
+  	background-repeat: no-repeat;
+ 	min-height: 100%;
+  	min-width: 1024px;
+  	width: 100%;
+  	height: auto;
+  	top: 0;
+  	left: 0;
+  	-webkit-background-size: cover;
+  	 z-index: -1;
+}
+
+
+.navbar {
+	
+	display: flex;
+	align-items: center;
+	height: 40px;
+	justify-content: flex-end;
+	background: white;
+	margin-top: 40px;
+}
+
+.signup{
+	font-size: 14px;
+	background-color: white;
+	border: 1px solid white;
+	border-radius: 5px;
+	color: black;
+	font-family: Roboto;
+	padding: 3px 4px;
+	margin-right:5px;
+
+}
+
+.signin{
+	font-size: 14px;
+	background-color: white;
+	border: 1px solid white;
+	
+	border-radius: 5px;
+	color: black;
+	font-family: Roboto;
+	margin-right:10px;
+	padding: 3px 4px;
+	
+}
+
+a:link{
+    text-decoration:none;
+    color:black;
+}
+a:visited{
+    text-decoration:none;
+    color:black;
+}
+
+a:hover{
+	color: #767676;
+}
+
+.grow:hover { transform: scale(1.1); }

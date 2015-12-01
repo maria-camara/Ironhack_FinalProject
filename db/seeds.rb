@@ -11,9 +11,13 @@ i.destroy_all
 puts('all ingredients deleted')
 Ingredient.create(name: "pasta")
 Ingredient.create(name: "chorizo")
+Ingredient.create(name: "salt")
+Ingredient.create(name: "pepper")
+Ingredient.create(name: "olive oil")
+
 
 Recipe.destroy_all
-RecipeWithIngredient.destroy_all
+IngredientsRecipe.destroy_all
 
 Recipe.create(title: "Pesto Pasta", preparation: 'Ingredients out // Kettle boiled // Large frying pan - high heat // Large lidded casserole pan, high heat // Food processor (bowl blade).
 	On a large sheet of greaseproof paper, toss the chicken with salt, pepper, fennel seeds and the rosemary leaves • Fold over the paper, then bash and flatten the chicken to 1.5cm thick with a rolling pin • Put into the frying pan with the rapeseed oil, the bashed unpeeled garlic cloves and halved chillies, turning after about 3 or 4 minutes, until golden and cooked through • Line the beans up and cut off the stalks, put into the casserole pan, cover with boiling salted water and cook for 6 minutes with the lid on. 
@@ -29,8 +33,8 @@ Recipe.create(title: "Chorizo Carbonara", preparation: 'Ingredients out // Kettl
 
 	Beat the egg, lemon juice, yoghurt and remaining finely grated Manchego together in a bowl • Drain the pasta, reserving a cupful of the starchy cooking water • Toss the pasta into the chorizo pan, remove from the heat and mix well with the creamy sauce, loosening with a splash of cooking water, if needed, then season to taste • Dress and toss the salad, then serve with the pasta.', time: 15)
 
-RecipeWithIngredient.create(recipe_id: Recipe.first.id, ingredient_id: Ingredient.first.id, quantity: 200, measure: "grams")
-RecipeWithIngredient.create(recipe_id: Recipe.last.id, ingredient_id: Ingredient.last.id, quantity: 200, measure: "grams")
+IngredientsRecipe.create(recipe_id: Recipe.first.id, ingredient_id: Ingredient.first.id, quantity: 200, measure: "grams")
+IngredientsRecipe.create(recipe_id: Recipe.last.id, ingredient_id: Ingredient.last.id, quantity: 200, measure: "grams")
 #RecipeWithIngredient.create(recipe_id: Recipe.last.id, ingredient_id: Ingredient.new.id, quantity: 70, measure: "grams")
 
 

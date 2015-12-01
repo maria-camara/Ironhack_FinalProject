@@ -1,6 +1,10 @@
-class RecipeWithIngredient < ActiveRecord::Base
-	belongs_to :ingredient
+class IngredientsRecipe < ActiveRecord::Base
+
 	belongs_to :recipe
+	
+	belongs_to :ingredient
+
+
 
 	def self.get_ingredients_for_recipe(recipe_id)
 
@@ -18,10 +22,5 @@ class RecipeWithIngredient < ActiveRecord::Base
 		#RecipeWithIngredient.find(ingredient_id)
 		#binding pry
 	#end
-
-
-
-
-
 
 end
