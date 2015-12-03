@@ -11,28 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129225649) do
+ActiveRecord::Schema.define(version: 20151203120218) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "ingredients_recipes", id: false, force: :cascade do |t|
-    t.string  "measure"
-    t.integer "quantity"
-    t.integer "ingredient_id"
-    t.integer "recipe_id"
+  create_table "ingredients_recipes", force: :cascade do |t|
+    t.string   "measure"
+    t.integer  "quantity"
+    t.integer  "ingredient_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  add_index "ingredients_recipes", ["ingredient_id"], name: "index_ingredients_recipes_on_ingredient_id"
-  add_index "ingredients_recipes", ["recipe_id"], name: "index_ingredients_recipes_on_recipe_id"
-
   create_table "recipes", force: :cascade do |t|
-    t.string  "title"
-    t.integer "time"
-    t.string  "preparation"
-    t.integer "step",        default: 1
-    t.string  "image"
+    t.string   "title"
+    t.integer  "time"
+    t.string   "preparation"
+    t.integer  "step",               default: 1
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

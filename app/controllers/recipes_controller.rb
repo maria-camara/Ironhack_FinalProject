@@ -2,13 +2,13 @@ class RecipesController < ApplicationController
 	
 
 	def new
-		if Recipe.last.step == 3 || Recipe.last.step == nil
+		if Recipe.last.step == 3 || Recipe.last.step == 1
 			@new_recipe = Recipe.new
 		else 
 			@recipe = Recipe.last
 			@ingredient = Ingredient.new
 			@ingredients_recipes = IngredientsRecipe.new
-			@added_ingredients = IngredientsRecipe.get_ingredients_for_recipe(@recipe.id)
+			@added_ingredients = @recipe.ingredients
 		end
 		#PARA USAR NESTED FORMS----------------
 		#@recipe.ingredients.build # build ingredient attributes, nothing new here
@@ -28,60 +28,14 @@ class RecipesController < ApplicationController
 		end
 	end
 
-
-
-
-
-
-		# index = [*0..100]
-		# ingredients = []
-		# measures = []
-		# quantities = []
-		# recipe = Recipe.create(title: params[:recipe_title], time: params[:recipe_time], preparation: params[:recipe_preparation], image: params[:file])
-		# index.each do |number|
-		# 	 if params[number.to_s]
-		# 	 	ingredients.push(Ingredient.create(name: params[number.to_s][:name]))
-		# 	 	measures.push(params[number.to_s][:measure])
-		# 	 	quantities.push(params[number.to_s][:quantity])
-		# 	 end
-		# end	 
-	
-		# ingredients.each_with_index do |ingredient, index|
-		#  	IngredientsRecipe.create(recipe_id: Recipe.last.id, ingredient_id: ingredient.id, 
-		#  	measure: measures[index], quantity: quantities[index])
-		# end
-
-	#end
-		 
-#PARA USAR NESTED FORMS --------------------------
-	# 	if params[:add_ingredient]
- #      	# add empty ingredient associated with @recipe
- #      		@recipe.ingredients.build
- #      		@ingredient.ingredients_recipes.build
- #    	elsif params[:remove_ingredient]
- #     	 # nested model that have _destroy attribute = 1 automatically deleted by rails
- #    	else
- #      	# save goes like usual
- #      	if @recipe.save
- #        redirect_to @recipe and return
- #      end
-	# 	end	
-	# 	#render :action => 'show'
-	# 	redirect_to recipe_path(recipe.id)
-	# end	
-
-
 	def show
 		@recipe = Recipe.find(params[:id])
-		#binding.pry
 	end 
 
 	def edit
-		recipe = Recipe.find(params[:id])
-		if recipe.step == 2
-			@recipe_last_step = recipe
-		else
-			@recipe = recipe 
+		@recipe = Recipe.find(params[:id])
+		if @recipe.step != 2
+			redirect_to new_recipe_path
 		end
 	end
 
@@ -91,50 +45,13 @@ class RecipesController < ApplicationController
 		if @recipe.step == 2
 			@recipe.update(recipe_params)
 			@recipe.update(step: 3)
-			#flash[:message] = "Recipe Created!!"
+			flash[:message] = "Recipe Created!!"
 		else 
 			@recipe.update(recipe_params)
 		end
 		redirect_to recipe_path(@recipe)
     end
-		#PARA NESTED FORMS-----------------
-	# 	if params[:add_ingredient]
- #    	# rebuild the ingredient attributes that doesn't have an id
-	#     	unless params[:recipe][:ingredients_attributes].blank?
-	# 		  	for attribute in params[:recipe][:ingredients_attributes]
-	# 		    @recipe.ingredients.build(attribute.last.except(:_destroy)) unless attribute.last.has_key?(:id)
-	# 		  	end
- #    		end
- #      # add one more empty ingredient attribute
- #      		@recipe.ingredients.build
- #    	elsif params[:remove_ingredient]
- #      # collect all marked for delete ingredient ids
- #      		removed_ingredients = params[:recipe][:ingredients_attributes].collect { |i, att| att[:id] if (att[:id] && att[:_destroy].to_i == 1) }
- #      # physically delete the ingredients from database
- #      		Ingredient.delete(removed_ingredients)
-	# 			flash[:notice] = "Ingredients removed."
-	# 	      	for attribute in params[:recipe][:ingredients_attributes]
- #      	# rebuild ingredients attributes that doesn't have an id and its _destroy attribute is not 1
- #        		@recipe.ingredients.build(attribute.last.except(:_destroy)) if (!attribute.last.has_key?(:id) && attribute.last[:_destroy].to_i == 0)
- #      			end
- #    	else
-	#       # save goes like usual
-	#     	if @recipe.update_attributes(params[:recipe])
-	# 	        flash[:notice] = "Successfully updated recipe."
-	# 	        redirect_to @recipe and return
-	#       	end
- #   		end
- #   		render :action => 'edit'
- #   	end
-
-
- #   	def destroy
-	#     @recipe = Recipe.find(params[:id])
-	#     @recipe.destroy
-	#     flash[:notice] = "Successfully destroyed recipe."
-	#     redirect_to recipes_url
-	  	
-	# end
+		
 
    	private 
 

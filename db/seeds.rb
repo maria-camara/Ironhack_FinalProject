@@ -10,10 +10,13 @@ i = Ingredient.all
 i.destroy_all
 puts('all ingredients deleted')
 Ingredient.create(name: "pasta")
+Ingredient.create(name: "rice")
 Ingredient.create(name: "chorizo")
 Ingredient.create(name: "salt")
 Ingredient.create(name: "pepper")
 Ingredient.create(name: "olive oil")
+Ingredient.create(name: "lemon")
+
 
 
 Recipe.destroy_all

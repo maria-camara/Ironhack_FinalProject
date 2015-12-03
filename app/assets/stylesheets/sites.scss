@@ -2,52 +2,190 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//For front-page
+
+
+#logo{
+	width:100px;
+    height:100px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: transparent;
+    color:white;
+    margin-right:980px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+	
+}
+
+.logo_text{
+	font-family: 'Just Another Hand', cursive;
+	font-size: 40px;
+	text-align: center;	
+}
+
+.container_front_page{
+	background-image: asset-url("background.jpg");
+  	position: fixed; 
+  	background-repeat: no-repeat;
+ 	min-height: 100%;
+  	min-width: 1024px;
+  	width: 100%;
+  	height: auto;
+  	top: 0;
+  	left: 0;
+  	-webkit-background-size: cover;
+  	 z-index: -1;
+}
+
+
+
+.navbar {
+	
+	display: flex;
+	align-items: center;
+	height: 60px;
+	
+	margin-top: 40px;
+}
+
+.signup{
+	font-size: 16px;
+	background-color: transparent;
+	border: 2px solid white;
+	border-radius: 5px;
+	color: white;
+	font-family: Roboto;
+	padding: 3px 4px;
+	margin-right:20px;
+
+}
+
+.signin{
+	font-size: 16px;
+	background-color: transparent;
+	border: 2px solid white;
+	
+	border-radius: 5px;
+	color: black;
+	font-family: Roboto;
+	margin-right:10px;
+	padding: 3px 4px;
+	
+}
+
+a:link{
+    text-decoration:none;
+    color:white;
+}
+a:visited{
+    text-decoration:none;
+    color:white;
+}
+
+a:hover{
+	color: #c9430a;
+}
+
+//For Homepage
+
+.homepage-background{
+	background-image: asset-url("bruchetta.jpg");
+  	position: fixed; 
+  	background-repeat: no-repeat;
+ 	min-height: 100%;
+  	min-width: 1024px;
+  	width: 100%;
+  	height: auto;
+  	top: 0;
+  	left: 0;
+  	-webkit-background-size: cover;
+  	 z-index: -1;
+}
+
 .container-homepage{
-	background-color: #cee5ed;
-	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 80px;
+	
+}
+
+.search-page{
     min-height: 100%;
     margin: 0;
+    background-color: white;
+	width: 400px;
+	padding-bottom: 50px;
+	
+	border-radius: 5px;
+	box-shadow: 5px 5px #cee5ed; 
+
 }
+
 
 #ingredient{
 	font-size: 30px;
 	color:#767676;
-
 	padding: 20px 0px;
 	border: 10px 0px double;
 	margin-top:20px;
+	
 
 }
 
 .search-form{
-	color: white;
+	color:#767676;
 	font-family: Roboto;
-	font-size: 40px;
+	font-size: 30px;
 	text-align: center;
-}
-
-a[value=Submit]{
-	margin-top: 10px;
-	font-family: Roboto;
-	font-size: 20 px;
+	padding-top: 15px;
 }
 
 
 .user-navbar {
-	font-family: Roboto;
-	font-size: 14px;
 	display: flex;
 	align-items: center;
-	height: 40px;
+	height: 60px;
 	justify-content: flex-end;
 	margin-right: 5px;
 	margin-bottom:40px;
-	background-color: white;
 	width: 50px;
 	text-align: center;
 
 }
+.new_recipe{
+	font-size: 16px;
+	background-color: transparent;
+	border: 2px solid white;
+	border-radius: 5px;
+	font-family: Roboto;
+	margin-right:10px;
+	margin-top: 40px;
+	margin-left: -3px;
+	padding: 3px 4px;
+	height: 50px;
+	width: 60px;
+}
+ul{
+	list-style: none;
+	list-style-type: none;
+	padding: 0;
+}
+input:focus { 
+    background-color: white;
+    outline-color: #cee5ed;
+}
 
+input[type='radio']:checked{
+  background:#cee5ed;
+  color: #cee5ed;
+}
 
+.minutes_selector{
+	margin-top: 10px;
+	font-size: 22px;
+}
 
 

@@ -1,22 +1,33 @@
-	
-	<h1> </h1>
-	<div class='navbar-container'>
-		<div class= 'user-navbar'>
-			<%= link_to "NEW RECIPE", new_recipe_path %>
-		
-		</div>	
+<div class = 'homepage-background'>
+	<div class='container-homepage'>
+		<div class= 'search-page'>
+			<div class ='search-form'>
+				<%= form_tag('/search') do %>
+					<label for="ingredient">What's in your fridge?</label>
+					<div><%= text_field_tag 'ingredient'%></div>
+					<div class='minutes_selector'>
+						 <label><input type="radio" name="filter" value='15'checked="checked" /> 15'</label>
+						 <label><input type="radio" name="filter" value='30' checked="checked" /> 30'</label>
+					 </div>
+			  		<div class= "submit"><%= submit_tag 'Submit' %></div>
+
+				<% end %>
+			</div>	
+		</div>
+		</form>
+		<button class='new_recipe'><%= link_to "new recipe", new_recipe_path %></button>
 	</div>
+</div>	
 
+<script type="text/javascript">
+	$("input[type='radio']").change(function () {
+	    var time = $("[name='time']:checked").val();
 
-	<div class= 'container-homepage'>
-	<div class ='search-form'>
-
-		<%= form_tag('/search') do %>
-			<label for="ingredient">What's in your fridge?</label>
-			<div><%= text_field_tag 'ingredient'%></div>
-	  		<div class= "submit"><%= submit_tag 'Submit' %></div>
-		<% end %>
-	</div>	
-	</div>
-	</form>
+	    if (!time || !time) return;
+	    $("li").hide();
+	    $("li").filter(function (index) {
+	        return $(this).hasClass(time)
+	   	}).show();
+	});
+</script>	
 

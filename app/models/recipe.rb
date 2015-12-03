@@ -1,8 +1,11 @@
 class Recipe < ActiveRecord::Base
 	has_and_belongs_to_many :ingredients
 
-	accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
-	
+	validates_attachment :image,
+                     image_content_type: { image_content_type: ["image/jpeg", "image/png"] }
+	#scope :by_time, lambda{ |time| where(time: time.to_i) unless type.nil? }
 
-	  #mount_uploader :image, PictureUploader
+	#scope :time, -> (time) { where time: time }
+	
+	
 end

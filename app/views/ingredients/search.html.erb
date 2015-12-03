@@ -1,26 +1,32 @@
-<head>
-	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 
-</head>
 
-<body>
+
 	
+<div class='search_container_background'>
+	<div class='navbar'>
+    	<div id="logo">
+        	<a href="/homepage">
+        	<span class='logo_text'>
+        	chop- <br> -chop</span></a>  
+    	</div>
+  	</div> 
 
 	<div class= 'search-container'>
 
 	<% if @recipes %>
 		<h4 class= 'list-of-recipes-title'>Here are some ideas!</h4>
 
-		<ul class ='list-of-recipes'>
+		<ul class ='list_of_recipes'>
 			<% @recipes.each do |recipe| %>
 			<li> <%= link_to recipe.title, recipe_path(recipe.id)%></li>
 		<% end %>
 		
 		</ul>	
+	</div>	
+	<% else %>
+		<p id='nothing'>Nothing found :(</p>
 
 	<% end %>
-	</div>
-	<div class="back-btn"><%= link_to "Back", search_path %> </div>
 
 
-</body>
+

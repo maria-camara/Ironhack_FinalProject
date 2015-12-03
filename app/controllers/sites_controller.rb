@@ -8,6 +8,7 @@ class SitesController < ApplicationController
 
 	def search
 		
+		
 	end
 end
 

@@ -1,3 +1,279 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar{
+	display: flex;
+	align-items: center;
+	height: 60px;
+	margin-top: 40px;
+	justify-content: flex-start;
+}
+
+#logo{
+	width:100px;
+    height:100px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: transparent;
+    color:white;
+   	margin-top:40px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+	
+}
+
+.logo_text{
+	font-family: 'Just Another Hand', cursive;
+	font-size: 40px;
+	text-align: center;	
+}
+
+//Step 1 and 2
+
+.create_recipe_background{
+	background-image: asset-url("granola.jpg");
+  	position: fixed; 
+  	background-repeat: no-repeat;
+ 	min-height: 100%;
+  	min-width: 1024px;
+  	width: 100%;
+  	height: auto;
+  	top: 0;
+  	left: 0;
+  	-webkit-background-size: cover;
+  	 z-index: -1;
+	
+
+}
+
+.create_title_time{
+	display: flex;
+	flex-direction:column;
+	height: auto;
+	padding-bottom:50px;
+	
+
+}
+.create_recipe_form {
+
+	font-family:roboto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: -20px;
+	
+}
+
+#new_recipe{
+	margin-top: 0;
+}
+.left-half{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	width: 300px;
+	height: auto;
+	background-color: white;
+	border-radius: 5px;
+	margin-right: 20px;
+	box-shadow: 5px 5px #cee5ed;
+	padding-bottom: 50px; 
+}
+
+#recipe_time{
+	background-color: white;
+}
+
+.right-half{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	width: 300px;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 5px 5px #cee5ed;
+	text-align: center; 
+}
+.create_ingredients_background{
+	background-image: asset-url("tomatoes.jpg");
+  	position: fixed; 
+  	background-repeat: no-repeat;
+ 	min-height: 100%;
+  	min-width: 1024px;
+  	width: 100%;
+  	height: auto;
+  	top: 0;
+  	left: 0;
+  	-webkit-background-size: cover;
+  	 z-index: -1;
+	
+}
+
+#ingredient_name{
+	font-size:14px;
+}
+#ingredients_recipe_quantity{
+	font-size:14px;
+	width: 40%;
+}
+#ingredients_recipe_measure{
+	font-size:14px;
+	width: 40%;
+
+}
+
+input[type=submit]{
+	width: 100%;
+	font-size: 16px;
+	font-family: Roboto;
+	border: 1px solid black;
+	background-color: white;
+	border-radius: 5px;
+}
+
+a:hover{
+	color:white;
+}
+
+
+.next_step{
+	font-size: 16px;
+	background-color: transparent;
+	border: 2px solid white;
+	border-radius: 5px;
+	font-family: Roboto;
+	margin-right:10px;
+	margin-top: 40px;
+	margin-left: -3px;
+	padding: 3px 4px;
+	height: 50px;
+	width: 60px;
+	
+}
+//Step 3
+
+.create_preparation_background{
+	background-image: asset-url("granola.jpg");
+  	position: fixed; 
+  	background-repeat: no-repeat;
+ 	min-height: 100%;
+  	min-width: 1024px;
+  	width: 100%;
+  	height: auto;
+  	top: 0;
+  	left: 0;
+  	-webkit-background-size: cover;
+  	 z-index: -1;	
+  
+
+}
+
+.edit_recipe{
+	padding-top: 30px;
+	padding-bottom: 50px;
+
+}
+
+.create_preparation{
+	font-family:roboto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: -20px;
+	
+}
+
+
+.preparation_form{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	width: 400px;
+	background-color: white;
+	border-radius: 5px;
+	
+	box-shadow: 5px 5px #cee5ed; 
+	
+}
+
+#recipe_preparation{
+	width: 300px;
+	height: 150px;
+	margin-top:5px;
+}
+
+
+.back_button{
+	font-size: 16px;
+	background-color: transparent;
+	border: 2px solid white;
+	border-radius: 5px;
+	font-family: Roboto;
+	margin-right:10px;
+	margin-top: 40px;
+	margin-left: -3px;
+	padding: 3px 4px;
+	height: 50px;
+	width: 60px;
+}
+
+//SHOW RECIPE 
+
+.show_recipe_background{
+	background-image: asset-url("tomatoes.jpg");
+  	position: fixed; 
+  	background-repeat: no-repeat;
+ 	min-height: 100%;
+  	min-width: 1024px;
+  	width: 100%;
+  	height: auto;
+  	top: 0;
+  	left: 0;
+  	-webkit-background-size: cover;
+  	 z-index: -1;	
+}
+
+.show_container{
+	font-family:roboto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: -20px;
+	
+}
+
+.show_recipe_page{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 5px;
+	margin-right: 20px;
+	box-shadow: 5px 5px #cee5ed;
+	width: 500px;
+	background-color: white;
+	padding: 20px; 
+	
+}
+
+.show_ingredients_page{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 5px 5px #cee5ed;
+	width: 250px;
+	margin-left: 20px;
+	height-min: 300px;
+	padding: 20px;
+	
+}
+
+
+
+
+	
+

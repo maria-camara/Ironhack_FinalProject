@@ -1,48 +1,65 @@
+<div class='create_recipe_background'>
+  
+  <div class='navbar'>
+    <div id="logo">
+        <a href="/homepage">
+        <span class='logo_text'>
+        chop- <br> -chop</span></a>  
+    </div>
+  </div>    
 
-
-<div class="left-half">
-<% if @new_recipe %> 
-<h1>New recipe</h1> 
-<%= form_for @new_recipe do |f| %>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-
-   <p>
-    <%= f.label :time %><br />
-    <%= f.number_field :time %>
-  </p>
-  <%= f.submit 'Next' %>
-  <% end %>
-<% else %> 
-  <h1>Ingredients</h1>
-  <%= form_for [@recipe, @ingredient] do |ing| %>
-      <p>
-        <%= ing.label :name %>
-        <%= ing.text_field :name %>
-        <%= fields_for @ingredients_recipes do |details| %> 
-          <%= details.label :quantity %>
-          <%= details.number_field :quantity %>
-          <%= details.label :measure %>
-          <%= details.text_field :measure %>
-        <% end %>
-        </p>
+  <div class= 'create_recipe_form'>
+    <div class="left-half">
+      <div class='create_title_time'>
+        <% if @new_recipe %> 
+          <h1>New recipe</h1> 
+            <%= form_for @new_recipe do |f| %>
+           
+              <%= f.label :title %><br />
+              <%= f.text_field :title %>
+          
+              <br>
+              <%= f.label :time %><br />
+              <%= f.select :time, options_for_select([15, 30])%>
+            <br>
+            <br>
+              <%= f.submit 'Next' %>
+            <% end %>
+        </div>  
+      <% else %> 
+        <h3 >Ingredients</h3>
+        <%= form_for [@recipe, @ingredient] do |ing| %>
         <p>
-        <%= ing.submit 'Add ingredient', :name => "add_ingredient" %>
-        <%= link_to 'Next Step', edit_recipe_path(@recipe) %>
-        </p>
-  <% end %>
-<% end %>
-</div>
-<div class="right-half">
-  <% if @added_ingredients %>
-    <h1>Chosen Ingredients</h1>
-    <% @added_ingredients.each do |ingredient| %>
-    <p>Name:
-      <%= ingredient.name %>
-    </p>    
+          <%= ing.label :name %><br>
+          <%= ing.text_field :name %><br>
+          <%= fields_for @ingredients_recipes do |details| %> 
+            <%= details.label :quantity %><br>
+            <%= details.number_field :quantity %><br>
+            <%= details.label :measure %><br>
+            <%= details.text_field :measure %>
+          <% end %>
+        </div>  
+          </p>
+          <p>
+          <%= ing.submit 'Add ingredient', :name => "add_ingredient" %>  
+          </p>
+
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+    </div>
+    <% if @recipe %>
+    <div class="right-half">
+      <h3>List of Ingredients</h3>
+      <ul> <% @added_ingredients.each do |ingredient| %>
+        <li><%= ingredient.name %></li>
+      <ul>  
+      <% end %>
+    </div>
+
+    
+      <button class='next_step'><%= link_to "next step", edit_recipe_path(@recipe) %></button>
+    <% end %>
+
+</div> 
+
 
